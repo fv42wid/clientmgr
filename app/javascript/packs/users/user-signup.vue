@@ -39,7 +39,7 @@
                        @click.native="loader = 'loading'">
                     Sign Up
                     <span slot="loader" class="custom-loader">
-                        <v-icon light>cached</v-icon>
+                        <v-icon dark>cached</v-icon>
                     </span>
                 </v-btn>
             </v-flex>
