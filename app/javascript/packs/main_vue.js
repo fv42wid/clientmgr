@@ -16,7 +16,7 @@ Vue.use(VueResource)
 Vue.use(Vuetify)
 
 document.addEventListener('turbolinks:load', () => {
-  document.body.appendChild(document.createElement('hello'))
+
   var app = new Vue({
       el: 'v-app',
       data: {
