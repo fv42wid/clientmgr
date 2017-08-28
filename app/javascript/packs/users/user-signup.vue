@@ -65,6 +65,15 @@
         methods: {
             signUp() {
                 this.loading = true
+                this.$http.post('/users', {utf8: this.utf8, authenticity_token: this.authenticity_token, user: this.user}).then(
+                    response => {
+                        this.loading = false
+                        Turbolinks.visit('/customers')
+                    }, response => {
+                        this.loading = false
+                        console.log(response.body.errors)
+                    }
+                )
                 console.log('submit')
             }
         },
