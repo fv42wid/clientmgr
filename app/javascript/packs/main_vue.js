@@ -10,6 +10,7 @@ import TurbolinksAdapter from 'vue-turbolinks'
 import VueResource from 'vue-resource'
 
 import UserSignup from './users/user-signup.vue'
+import UserSignin from './users/user-signin.vue'
 
 Vue.use(VueResource)
 Vue.use(Vuetify)
@@ -25,7 +26,8 @@ document.addEventListener('turbolinks:load', () => {
           console.log('main created')
       },
       components: {
-          'user-signup' : UserSignup
+          'user-signup' : UserSignup,
+          'user-signin' : UserSignin
       }
   })
 })
