@@ -9,12 +9,23 @@ import Vuetify from 'vuetify'
 import TurbolinksAdapter from 'vue-turbolinks'
 import VueResource from 'vue-resource'
 
+import UserSignup from './users/user-signup.vue'
+
 Vue.use(VueResource)
 Vue.use(Vuetify)
 
 document.addEventListener('turbolinks:load', () => {
   document.body.appendChild(document.createElement('hello'))
-  const app = new Vue(App).$mount('hello')
+  var app = new Vue({
+      el: 'v-app',
+      data: {
 
-  console.log(app)
+      },
+      created: function() {
+          console.log('main created')
+      },
+      components: {
+          'user-signup' : UserSignup
+      }
+  })
 })

@@ -5,11 +5,19 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'main_vue' %>
   </head>
 
   <body>
-    <%= yield %>
+    <v-app toolbar>
+      <%= render 'layouts/header' %>
+      <main>
+        <v-container fluid>
+          <%= yield %>
+        </v-container>
+      </main>
+    </v-app>
   </body>
 </html>
