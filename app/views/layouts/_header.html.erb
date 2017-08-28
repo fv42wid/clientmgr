@@ -22,13 +22,20 @@
   <v-toolbar-title>client-mgr</v-toolbar-title>
   <v-spacer></v-spacer>
   <v-toolbar-items>
-    <v-btn flat href="#" class="grey--text">
-      <v-icon left class="grey--text">lock_open</v-icon>
-      Sign In
-    </v-btn>
-    <v-btn flat href="#" class="grey--text">
-      <v-icon left class="grey--text">face</v-icon>
-      Sign Up
-    </v-btn>
+    <% if user_signed_in? %>
+      <v-btn flat href="<%= destroy_user_session_path %>" data-method="delete" class="grey--text">
+        <v-icon left class="grey--text">lock</v-icon>
+        Sign Out
+      </v-btn>
+    <% else %>
+      <v-btn flat href="<%= new_user_session_path %>" class="grey--text">
+        <v-icon left class="grey--text">lock_open</v-icon>
+        Sign In
+      </v-btn>
+      <v-btn flat href="<%= new_user_registration_path %>" class="grey--text">
+        <v-icon left class="grey--text">face</v-icon>
+        Sign Up
+      </v-btn>
+    <% end %>
   </v-toolbar-items>
 </v-toolbar>
