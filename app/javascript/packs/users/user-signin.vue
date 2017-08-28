@@ -51,16 +51,33 @@
                     password: '',
                     remember_me: false
                 },
-                loading: false
+                loading: false,
+                utf8: '',
+                authenticity_token: '',
+                errors: []
             }
         },
         methods: {
             signIn() {
                 this.loading = true
-                console.log('submitted')
+                this.$http.post('/users/sign_in', {
+                    uft8: this.utf8,
+                    authenticity_token: this.authenticity_token,
+                    user: this.user
+                }).then(response => {
+                        console.log(response)
+                        this.loading = false
+                        Turbolinks.visit('/customers')
+                }, response => {
+                    this.loading = false
+                    console.log(response)
+                })
+
             }
         },
         created: function() {
+            this.utf8 = document.getElementsByName('utf8')[0].getAttribute('value')
+            this.authenticity_token = document.getElementsByName('authenticity_token')[0].getAttribute('value')
             console.log('signin created')
         }
     }
