@@ -11,6 +11,7 @@ import VueResource from 'vue-resource'
 
 import UserSignup from './users/user-signup.vue'
 import UserSignin from './users/user-signin.vue'
+import CustomerNew from './customers/customer-new.vue'
 
 Vue.use(VueResource)
 Vue.use(Vuetify)
@@ -27,7 +28,8 @@ document.addEventListener('turbolinks:load', () => {
       },
       components: {
           'user-signup' : UserSignup,
-          'user-signin' : UserSignin
+          'user-signin' : UserSignin,
+          'customer-new' : CustomerNew
       }
   })
 })
