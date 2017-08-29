@@ -66,10 +66,11 @@
                     customer: this.customer
                 }).then(response => {
                     this.loading = false
+                    console.log(response)
                     Turbolinks.visit('/customers')
                 }, response => {
                     this.loading = false
-                    console.log(response)
+                    console.log(JSON.parse(response.bodyText).errors)
                 })
                 console.log('submit')
             }
