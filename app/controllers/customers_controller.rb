@@ -9,6 +9,16 @@ class CustomersController < ApplicationController
   end
 
   def create
+    @customer = current_user.customers.new(customer_params)
+    if @customer.save
 
+    else
+
+    end
   end
+
+  private
+    def customer_params
+      params.require(:customer).permit(:name, :website, :description)
+    end
 end

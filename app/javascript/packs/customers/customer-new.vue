@@ -30,7 +30,7 @@
             <v-flex xs12 sm6>
                 <v-btn type="submit"
                        primary
-                       :disabled="loading"
+                       :disabled="!formIsValid"
                        :loading="loading"
                        @click.native="loader = 'loading'">
                     Create
@@ -52,15 +52,42 @@
                     website: '',
                     description: ''
                 },
-                loading: false
+                loading: false,
+                utf8: '',
+                authenticity_token: ''
             }
         },
         methods: {
             createCustomer() {
+                this.loading = true
+                this.$http.post('/customers', {
+                    utf8: this.utf8,
+                    authenticity_token: this.authenticity_token,
+                    customer: this.customer
+                }).then(response => {
+                    this.loading = false
+                    Turbolinks.visit('/customers')
+                }, response => {
+                    this.loading = false
+                    console.log(response)
+                })
                 console.log('submit')
             }
         },
+        computed: {
+            formIsValid() {
+                if(this.loading) {
+                    return false
+                }
+                else if(this.customer.name !== '') {
+                    return true
+                }
+                return false
+            }
+        },
         created: function() {
+            this.utf8 = document.getElementsByName('utf8')[0].getAttribute('value')
+            this.authenticity_token = document.getElementsByName('authenticity_token')[0].getAttribute('value')
             console.log('new customer created')
         }
     }
