@@ -11,6 +11,7 @@ import VueResource from 'vue-resource'
 
 import UserSignup from './users/user-signup.vue'
 import UserSignin from './users/user-signin.vue'
+import CustomerIndex from './customers/customer-index.vue'
 import CustomerNew from './customers/customer-new.vue'
 
 Vue.use(VueResource)
@@ -29,6 +30,7 @@ document.addEventListener('turbolinks:load', () => {
       components: {
           'user-signup' : UserSignup,
           'user-signin' : UserSignin,
+          'customer-index' : CustomerIndex,
           'customer-new' : CustomerNew
       }
   })
