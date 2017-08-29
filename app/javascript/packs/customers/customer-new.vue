@@ -1,5 +1,10 @@
 <template>
     <form @submit.prevent="createCustomer">
+        <v-layout row v-for="(error, index) in errors">
+            <v-flex xs12 sm6>
+                <v-alert error dismissible :value="true" @input="onDismiss(index)">{{ error }}</v-alert>
+            </v-flex>
+        </v-layout>
         <v-layout row>
             <v-flex xs12 sm6>
                 <v-text-field name="name"
@@ -54,7 +59,8 @@
                 },
                 loading: false,
                 utf8: '',
-                authenticity_token: ''
+                authenticity_token: '',
+                errors: []
             }
         },
         methods: {
@@ -70,9 +76,14 @@
                     Turbolinks.visit('/customers')
                 }, response => {
                     this.loading = false
+                    this.errors = JSON.parse(response.bodyText).errors
                     console.log(JSON.parse(response.bodyText).errors)
                 })
                 console.log('submit')
+            },
+            onDismiss(index) {
+                this.errors.splice(index, 1)
+                console.log(this.errors)
             }
         },
         computed: {
