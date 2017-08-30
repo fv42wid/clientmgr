@@ -13,6 +13,7 @@ import UserSignup from './users/user-signup.vue'
 import UserSignin from './users/user-signin.vue'
 import CustomerIndex from './customers/customer-index.vue'
 import CustomerNew from './customers/customer-new.vue'
+import CustomerEdit from './customers/customer-edit.vue'
 
 Vue.use(VueResource)
 Vue.use(Vuetify)
@@ -31,7 +32,8 @@ document.addEventListener('turbolinks:load', () => {
           'user-signup' : UserSignup,
           'user-signin' : UserSignin,
           'customer-index' : CustomerIndex,
-          'customer-new' : CustomerNew
+          'customer-new' : CustomerNew,
+          'customer-edit' : CustomerEdit
       }
   })
 })

@@ -1,0 +1,10 @@
+<v-card>
+  <v-card-text>
+    <v-container>
+      <h2><%= @customer.name %></h2>
+      <%= form_for(Customer.new) do |f| %>
+      <% end %>
+      <customer-edit :customerinput="<%= @customer.to_json %>"></customer-edit>
+    </v-container>
+  </v-card-text>
+</v-card>

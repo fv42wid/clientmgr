@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-  before_action :set_customer, only: [:show]
+  before_action :set_customer, only: [:show, :edit, :update]
 
   def index
     @customers = Customer.all
@@ -19,6 +19,18 @@ class CustomersController < ApplicationController
   def create
     @customer = current_user.customers.new(customer_params)
     if @customer.save
+      render json: {customer: @customer}
+    else
+      render json: {errors: @customer.errors.full_messages}, status: 422
+    end
+  end
+
+  def edit
+
+  end
+
+  def update
+    if @customer.update_attributes(customer_params)
       render json: {customer: @customer}
     else
       render json: {errors: @customer.errors.full_messages}, status: 422

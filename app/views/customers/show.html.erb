@@ -3,6 +3,10 @@
     <v-card>
       <v-card-title primary-title class="pb-0">
         <h3 class="headline"><%= @customer.name %></h3>
+        <template v-if="true">
+          <v-spacer></v-spacer>
+          <customer-edit :customerinput="<%= @customer.to_json %>"></customer-edit>
+        </template>
         <div>
 
         </div>
@@ -14,9 +18,11 @@
         <span class="grey--text"><%= @customer.description %></span>
       </v-card-text>
       <v-card-actions>
-        <v-btn flat primary>Edit</v-btn>
+        <v-btn flat primary href="<%= edit_customer_path(@customer) %>">Edit</v-btn>
       </v-card-actions>
     </v-card>
   </v-flex>
 </v-layout>
+<%= form_for(@customer) do |f| %>
+<% end %>
 
