@@ -73,7 +73,8 @@
                 }).then(response => {
                     this.loading = false
                     console.log(response)
-                    Turbolinks.visit('/customers')
+                    var customer_id = JSON.parse(response.bodyText).customer.id
+                    Turbolinks.visit('/customers/' + customer_id)
                 }, response => {
                     this.loading = false
                     this.errors = JSON.parse(response.bodyText).errors

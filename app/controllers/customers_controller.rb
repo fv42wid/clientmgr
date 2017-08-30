@@ -19,7 +19,7 @@ class CustomersController < ApplicationController
   def create
     @customer = current_user.customers.new(customer_params)
     if @customer.save
-      redirect_to @customer
+      render json: {customer: @customer}
     else
       render json: {errors: @customer.errors.full_messages}, status: 422
     end

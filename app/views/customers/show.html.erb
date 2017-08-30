@@ -1,0 +1,22 @@
+<v-layout row>
+  <v-flex xs12 sm6 offset-sm3>
+    <v-card>
+      <v-card-title primary-title class="pb-0">
+        <h3 class="headline"><%= @customer.name %></h3>
+        <div>
+
+        </div>
+      </v-card-title>
+      <v-card-text class="pt-0">
+        <span class="grey--text"><%= @customer.website %></span>
+      </v-card-text>
+      <v-card-text class="pt-0">
+        <span class="grey--text"><%= @customer.description %></span>
+      </v-card-text>
+      <v-card-actions>
+        <v-btn flat primary>Edit</v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-flex>
+</v-layout>
+
