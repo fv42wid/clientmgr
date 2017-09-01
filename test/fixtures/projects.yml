@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  industry: MyString
+  engagement_date: 2017-09-01 14:04:25
+  engagement: 
+  country: MyString
+  business_problem: MyText
+  drivers: MyText
+  outcome: MyText
+  solution: MyText
+  solution_explanation: MyText
+  people_resource: MyText
+  contacts: MyText
+  links: MyText
+  metrics: MyText
+
+two:
+  title: MyString
+  description: MyText
+  industry: MyString
+  engagement_date: 2017-09-01 14:04:25
+  engagement: 
+  country: MyString
+  business_problem: MyText
+  drivers: MyText
+  outcome: MyText
+  solution: MyText
+  solution_explanation: MyText
+  people_resource: MyText
+  contacts: MyText
+  links: MyText
+  metrics: MyText
