@@ -15,6 +15,7 @@ import UserSignin from './users/user-signin.vue'
 import CustomerIndex from './customers/customer-index.vue'
 import CustomerNew from './customers/customer-new.vue'
 import CustomerEdit from './customers/customer-edit.vue'
+import ProjectNew from './projects/project-new.vue'
 
 Vue.use(VueResource)
 Vue.use(TurbolinksAdapter)
@@ -48,7 +49,8 @@ document.addEventListener('turbolinks:load', () => {
           'user-signin' : UserSignin,
           'customer-index' : CustomerIndex,
           'customer-new' : CustomerNew,
-          'customer-edit' : CustomerEdit
+          'customer-edit' : CustomerEdit,
+          'project-new' : ProjectNew
       }
   })
 })
