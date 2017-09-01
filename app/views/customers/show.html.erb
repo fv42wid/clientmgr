@@ -5,7 +5,7 @@
         <h3 class="headline"><%= @customer.name %></h3>
         <template v-if="true">
           <v-spacer></v-spacer>
-          <customer-edit :customerinput="<%= @customer.to_json %>"></customer-edit>
+          <customer-edit :customerinput="<%= @customer.to_json %>" @addsuccess="addSuccess"></customer-edit>
         </template>
         <div>
 

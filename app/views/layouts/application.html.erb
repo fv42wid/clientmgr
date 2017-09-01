@@ -18,6 +18,9 @@
           <%= yield %>
         </v-container>
       </main>
+      <div v-for="(message, index) in success" :key="index">
+        <success-message :message="message" :snackbar="message != null"></success-message>
+      </div>
     </v-app>
   </body>
 </html>

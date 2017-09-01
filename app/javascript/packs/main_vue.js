@@ -9,6 +9,7 @@ import Vuetify from 'vuetify'
 import TurbolinksAdapter from 'vue-turbolinks'
 import VueResource from 'vue-resource'
 
+import SuccessMessage from './layout/success-message.vue'
 import UserSignup from './users/user-signup.vue'
 import UserSignin from './users/user-signin.vue'
 import CustomerIndex from './customers/customer-index.vue'
@@ -24,13 +25,19 @@ document.addEventListener('turbolinks:load', () => {
   var app = new Vue({
       el: 'v-app',
       data: {
-
+          success: []
+      },
+      methods: {
+          addSuccess(message) {
+              this.success.push(message)
+          }
       },
       created: function() {
           //if(document.getElementById())
           console.log('main created')
       },
       components: {
+          'success-message' : SuccessMessage,
           'user-signup' : UserSignup,
           'user-signin' : UserSignin,
           'customer-index' : CustomerIndex,

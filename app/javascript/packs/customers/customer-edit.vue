@@ -76,7 +76,9 @@
                     authenticity_token: this.authenticity_token,
                     customer: this.customer
                 }).then(response => {
-                    Turbolinks.visit('/customers/' + this.customer_id)
+                    this.$emit('addsuccess', this.customer.name + ' updated!')
+                    //this.$emit('updatecustomer', this.customer)
+                    //Turbolinks.visit('/customers/' + this.customer_id)
                     console.log(response)
                 }, response => {
                     console.log(response)
@@ -101,7 +103,7 @@
             //this.customer.website = this.customerinput.website
             //this.customer.description = this.customerinput.description
             //this.customer_id = this.customerinput.id
-            console.log('new customer created')
+            console.log('edit customer created')
         }
     }
 </script>
