@@ -16,6 +16,7 @@ import CustomerNew from './customers/customer-new.vue'
 import CustomerEdit from './customers/customer-edit.vue'
 
 Vue.use(VueResource)
+Vue.use(TurbolinksAdapter)
 Vue.use(Vuetify)
 
 document.addEventListener('turbolinks:load', () => {
@@ -26,6 +27,7 @@ document.addEventListener('turbolinks:load', () => {
 
       },
       created: function() {
+          //if(document.getElementById())
           console.log('main created')
       },
       components: {

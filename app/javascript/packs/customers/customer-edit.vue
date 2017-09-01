@@ -64,24 +64,6 @@
         },
         props: ['customerinput'],
         methods: {
-            createCustomer() {
-                this.loading = true
-                this.$http.post('/customers', {
-                    utf8: this.utf8,
-                    authenticity_token: this.authenticity_token,
-                    customer: this.customer
-                }).then(response => {
-                    this.loading = false
-                    console.log(response)
-                    var customer_id = JSON.parse(response.bodyText).customer.id
-                    Turbolinks.visit('/customers/' + customer_id)
-                }, response => {
-                    this.loading = false
-                    this.errors = JSON.parse(response.bodyText).errors
-                    console.log(JSON.parse(response.bodyText).errors)
-                })
-                console.log('submit')
-            },
             onDismiss(index) {
                 this.errors.splice(index, 1)
                 console.log(this.errors)
@@ -94,6 +76,7 @@
                     authenticity_token: this.authenticity_token,
                     customer: this.customer
                 }).then(response => {
+                    Turbolinks.visit('/customers/' + this.customer_id)
                     console.log(response)
                 }, response => {
                     console.log(response)
