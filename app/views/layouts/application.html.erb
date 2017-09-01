@@ -11,6 +11,8 @@
   </head>
 
   <body>
+    <%= content_tag :div, id: "flash_div", data: {flash: flash.notice} do %>
+    <% end %>
     <v-app toolbar>
       <%= render 'layouts/header' %>
       <main>

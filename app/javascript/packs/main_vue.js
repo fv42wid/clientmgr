@@ -28,13 +28,19 @@ document.addEventListener('turbolinks:load', () => {
           success: []
       },
       methods: {
-          addSuccess(message) {
+          addSuccess: function(message) {
               this.success.push(message)
           }
       },
       created: function() {
           //if(document.getElementById())
+
           console.log('main created')
+      },
+      mounted: function() {
+          if(document.getElementById('flash_div').getAttribute('data-flash') !== null) {
+              this.success.push(document.getElementById('flash_div').getAttribute('data-flash'))
+          }
       },
       components: {
           'success-message' : SuccessMessage,

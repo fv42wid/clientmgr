@@ -19,6 +19,7 @@ class CustomersController < ApplicationController
   def create
     @customer = current_user.customers.new(customer_params)
     if @customer.save
+      flash[:notice] = "#{@customer.name} created!"
       render json: {customer: @customer}
       #redirect_to @customer
     else
