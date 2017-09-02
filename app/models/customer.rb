@@ -4,4 +4,5 @@ class Customer < ApplicationRecord
 
   validates :name, presence: true, length: {minimum: 3}
   validates :website, presence: true
+
 end

@@ -9,4 +9,20 @@
   </v-card-actions>
 </v-card>
 
-<customer-index :customerlist="<%= @customers.to_json %>"></customer-index>
+<v-layout row mt-2>
+  <v-flex xs12 sm6 offset-sm3>
+    <v-card>
+      <v-toolbar dark>
+        <v-toolbar-title>Customers</v-toolbar-title>
+      </v-toolbar>
+      <v-list two-line>
+        <% @customers.each do |customer| %>
+            <customer-index :customerinput="<%= customer.to_json %>" :projects="<%= customer.projects.count %>"></customer-index>
+        <% end %>
+      </v-list>
+    </v-card>
+  </v-flex>
+</v-layout>
+
+
+
