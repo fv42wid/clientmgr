@@ -1,9 +1,184 @@
 <v-layout row>
-  <v-flex xs12 sm6 offset-sm3>
-    <h3><%= @project.title %></h3>
-    <template v-if="true">
+  <v-flex xs12>
+    <v-card>
+      <v-toolbar class="primary">
+        <v-toolbar-title class="white--text">
+          <%= @project.title %>
+        </v-toolbar-title>
+      </v-toolbar>
+      <v-list>
+        <v-container fluid>
+          <v-subheader><%= @project.customer.name %></v-subheader>
+        </v-container>
 
-    </template>
+        <v-list-tile>
+          <v-list-tile-content>
+            <v-container fluid>
+              <v-layout row>
+                <v-flex xs12>
+                  <v-list-tile-title>Description</v-list-tile-title>
+                  <v-list-tile-sub-title><%= @project.description %></v-list-tile-sub-title>
+                </v-flex>
+              </v-layout>
+            </v-container>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile>
+          <v-list-tile-content>
+            <v-container fluid>
+              <v-layout row>
+                <v-flex xs12 sm6>
+                  <v-list-tile-title>Industry</v-list-tile-title>
+                  <v-list-tile-sub-title><%= @project.industry %></v-list-tile-sub-title>
+                </v-flex>
+                <v-flex xs12 sm6>
+                  <v-list-tile-title>Country</v-list-tile-title>
+                  <v-list-tile-sub-title><%= @project.country %></v-list-tile-sub-title>
+                </v-flex>
+              </v-layout>
+            </v-container>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile>
+          <v-list-tile-content>
+            <v-container fluid>
+              <v-layout row>
+                <v-flex xs12 sm6>
+                  <v-list-tile-title>Engagement Date</v-list-tile-title>
+                  <v-list-tile-sub-title><%= @project.engagement_date %></v-list-tile-sub-title>
+                </v-flex>
+                <v-flex xs12 sm6>
+                  <v-list-tile-title>Engagement Duration</v-list-tile-title>
+                  <v-list-tile-sub-title><%= @project.engagement_duration %></v-list-tile-sub-title>
+                </v-flex>
+              </v-layout>
+            </v-container>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile>
+          <v-list-tile-content>
+            <v-container fluid>
+              <v-layout row>
+                <v-flex xs12>
+                  <v-list-tile-title>Business Problem</v-list-tile-title>
+                  <v-list-tile-sub-title><%= @project.business_problem %></v-list-tile-sub-title>
+                </v-flex>
+              </v-layout>
+            </v-container>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile>
+          <v-list-tile-content>
+            <v-container fluid>
+              <v-layout row>
+                <v-flex xs12>
+                  <v-list-tile-title>Drivers</v-list-tile-title>
+                  <v-list-tile-sub-title><%= @project.drivers %></v-list-tile-sub-title>
+                </v-flex>
+              </v-layout>
+            </v-container>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile>
+          <v-list-tile-content>
+            <v-container fluid>
+              <v-layout row>
+                <v-flex xs12>
+                  <v-list-tile-title>Outcome</v-list-tile-title>
+                  <v-list-tile-sub-title><%= @project.outcome %></v-list-tile-sub-title>
+                </v-flex>
+              </v-layout>
+            </v-container>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile>
+          <v-list-tile-content>
+            <v-container fluid>
+              <v-layout row>
+                <v-flex xs12>
+                  <v-list-tile-title>Solution</v-list-tile-title>
+                  <v-list-tile-sub-title><%= @project.solution %></v-list-tile-sub-title>
+                </v-flex>
+              </v-layout>
+            </v-container>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile>
+          <v-list-tile-content>
+            <v-container fluid>
+              <v-layout row>
+                <v-flex xs12>
+                  <v-list-tile-title>Solution Explanation</v-list-tile-title>
+                  <v-list-tile-sub-title><%= @project.solution_explanation %></v-list-tile-sub-title>
+                </v-flex>
+              </v-layout>
+            </v-container>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile>
+          <v-list-tile-content>
+            <v-container fluid>
+              <v-layout row>
+                <v-flex xs12>
+                  <v-list-tile-title>People and Resources</v-list-tile-title>
+                  <v-list-tile-sub-title><%= @project.people_resource %></v-list-tile-sub-title>
+                </v-flex>
+              </v-layout>
+            </v-container>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile>
+          <v-list-tile-content>
+            <v-container fluid>
+              <v-layout row>
+                <v-flex xs12>
+                  <v-list-tile-title>Who to Contact</v-list-tile-title>
+                  <v-list-tile-sub-title><%= @project.contacts %></v-list-tile-sub-title>
+                </v-flex>
+              </v-layout>
+            </v-container>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile>
+          <v-list-tile-content>
+            <v-container fluid>
+              <v-layout row>
+                <v-flex xs12>
+                  <v-list-tile-title>Links</v-list-tile-title>
+                  <v-list-tile-sub-title><%= @project.links %></v-list-tile-sub-title>
+                </v-flex>
+              </v-layout>
+            </v-container>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile>
+          <v-list-tile-content>
+            <v-container fluid>
+              <v-layout row>
+                <v-flex xs12>
+                  <v-list-tile-title>Key Metrics</v-list-tile-title>
+                  <v-list-tile-sub-title><%= @project.metrics %></v-list-tile-sub-title>
+                </v-flex>
+              </v-layout>
+            </v-container>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile>
+          <v-list-tile-content>
+            <v-container fluid>
+              <v-layout row>
+                <v-flex xs12>
+                  <v-list-tile-title>Created By</v-list-tile-title>
+                  <v-list-tile-sub-title><%= @project.user.email %></v-list-tile-sub-title>
+                </v-flex>
+              </v-layout>
+            </v-container>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+
+
+    </v-card>
   </v-flex>
 </v-layout>
 

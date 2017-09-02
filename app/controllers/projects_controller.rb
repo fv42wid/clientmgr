@@ -1,12 +1,12 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show]
+  before_action :set_project, only: [:edit, :update]
 
   def index
     @projects = Project.includes(:customer)
   end
 
   def show
-
+    @project = Project.includes(:customer, :user).find(params[:id])
   end
 
   def new

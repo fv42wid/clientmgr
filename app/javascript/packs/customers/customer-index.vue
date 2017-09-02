@@ -8,7 +8,9 @@
         </v-list-tile-content>
         <v-list-tile-action>
             <v-list-tile-action-text>
-                {{ projectCount }} projects
+                <v-chip outline class="grey grey--text">
+                    {{ projectCount }} projects
+                </v-chip>
             </v-list-tile-action-text>
         </v-list-tile-action>
     </v-list-tile>
