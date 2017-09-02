@@ -16,6 +16,7 @@ import CustomerIndex from './customers/customer-index.vue'
 import CustomerNew from './customers/customer-new.vue'
 import CustomerEdit from './customers/customer-edit.vue'
 import ProjectNew from './projects/project-new.vue'
+import ProjectIndex from './projects/project-index.vue'
 
 Vue.use(VueResource)
 Vue.use(TurbolinksAdapter)
@@ -50,7 +51,8 @@ document.addEventListener('turbolinks:load', () => {
           'customer-index' : CustomerIndex,
           'customer-new' : CustomerNew,
           'customer-edit' : CustomerEdit,
-          'project-new' : ProjectNew
+          'project-new' : ProjectNew,
+          'project-index' : ProjectIndex
       }
   })
 })
