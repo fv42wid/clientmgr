@@ -6,6 +6,7 @@ class CustomersController < ApplicationController
   end
 
   def show
+    @projects = @customer.projects
     respond_to do |format|
       format.html
       format.json {render json: @customer}
