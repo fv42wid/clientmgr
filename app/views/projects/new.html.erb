@@ -5,6 +5,6 @@
   <v-card-text>
     <%= form_for(Project.new) do |f| %>
     <% end %>
-    <project-new></project-new>
+    <project-new customerlist="<%= @customers.to_json(only: [:id, :name]) %>"></project-new>
   </v-card-text>
 </v-card>

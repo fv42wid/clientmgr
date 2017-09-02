@@ -1,6 +1,6 @@
 <template>
     <form @submit.prevent="createCustomer">
-        <v-layout row v-for="(error, index) in errors">
+        <v-layout row v-for="(error, index) in errors" :key="index">
             <v-flex xs12 sm6>
                 <v-alert error dismissible :value="true" @input="onDismiss(index)">{{ error }}</v-alert>
             </v-flex>
