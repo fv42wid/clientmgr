@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :customers
   resources :projects
+  resources :consultants
 
   root 'customers#index'
 end
