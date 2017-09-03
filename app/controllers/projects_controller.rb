@@ -24,6 +24,15 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def update
+    if @project.update_attributes(project_params)
+      flash[:notice] = "#{@project.title} updated!"
+      render json: {project: @project}
+    else
+      render json: {errors: @project.errors.full_messages}, status: 422
+    end
+  end
+
   private
 
     def project_params

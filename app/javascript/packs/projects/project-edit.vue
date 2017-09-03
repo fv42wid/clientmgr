@@ -163,19 +163,39 @@
                     metrics: this.projectinput.metrics,
                     customer_id: this.projectinput.customer_id
                 },
+                project_id: this.projectinput.id,
                 editDialog: false,
                 customers: this.customerinput,
                 loading: false,
-                engagementDateMenu: true
+                engagementDateMenu: true,
+                utf8: '',
+                authenticity_token: '',
+                errros: []
             }
         },
         props: ['projectinput', 'customerinput'],
         methods: {
             saveChanges() {
-
+                this.loading = true
+                this.$http.patch('/projects/' + this.project_id, {
+                    utf8: this.utf8,
+                    authenticity_token: this.authenticity_token,
+                    project: this.project
+                }).then(response => {
+                    this.loading = false
+                    this.editDialog = false
+                    console.log(response)
+                    Turbolinks.visit('/projects/' + this.project_id)
+                }, response => {
+                    this.loading = false
+                    this.errors = JSON.parse(response.bodyText).errors
+                    console.log(response)
+                })
             }
         },
         created() {
+            this.utf8 = document.getElementsByName('utf8')[0].getAttribute('value')
+            this.authenticity_token = document.getElementsByName('authenticity_token')[0].getAttribute('value')
             console.log('project edit created')
         }
     }
