@@ -1,0 +1,10 @@
+<v-card>
+  <v-card-title>
+    <h2>New Consultant</h2>
+  </v-card-title>
+  <v-card-text>
+    <%= form_for(Consultant.new) do |f| %>
+    <% end %>
+    <consultant-new expertiselist="<%= @expertises.to_json(only: [:id, :name]) %>"></consultant-new>
+  </v-card-text>
+</v-card>
