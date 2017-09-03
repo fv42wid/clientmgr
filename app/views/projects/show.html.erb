@@ -5,6 +5,10 @@
         <v-toolbar-title class="white--text">
           <%= @project.title %>
         </v-toolbar-title>
+        <v-spacer></v-spacer>
+        <template v-if="true">
+          <project-edit :projectinput="<%= @project.to_json %>" :customerinput="<%= @customers.to_json(only: [:id, :name]) %>"></project-edit>
+        </template>
       </v-toolbar>
       <v-list>
         <v-container fluid>
@@ -49,7 +53,7 @@
                 </v-flex>
                 <v-flex xs12 sm6>
                   <v-list-tile-title>Engagement Duration</v-list-tile-title>
-                  <v-list-tile-sub-title><%= @project.engagement_duration %></v-list-tile-sub-title>
+                  <v-list-tile-sub-title><%= @project.engagement_duration %> days</v-list-tile-sub-title>
                 </v-flex>
               </v-layout>
             </v-container>
