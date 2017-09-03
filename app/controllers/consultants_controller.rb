@@ -14,7 +14,13 @@ class ConsultantsController < ApplicationController
   end
 
   def create
-
+    @consultant = current_user.consultants.new(consultant_params)
+    if @consultant.save
+      flash[:notice] = "#{@consultant.name} created!"
+      render json: {consultant: @consultant}
+    else
+      render json: {errors: @consultant.errors.full_messages}, status: 422
+    end
   end
 
   def update

@@ -25,6 +25,15 @@
         </v-layout>
         <v-layout row>
             <v-flex xs12 sm6>
+                <v-text-field name="background"
+                              label="Background"
+                              v-model="consultant.background"
+                              :disabled="loading"
+                              multi-line></v-text-field>
+            </v-flex>
+        </v-layout>
+        <v-layout row>
+            <v-flex xs12 sm6>
                 <h5>Expertise</h5>
                 <v-checkbox v-for="expertise in expertises"
                             :key="expertise.id"
@@ -56,6 +65,7 @@
                 consultant: {
                     name: '',
                     title: '',
+                    background: '',
                     expertise_ids: []
                 },
                 loading: false,
@@ -69,6 +79,19 @@
         methods: {
             createConsultant() {
                 this.loading = true
+                this.$http.post('/consultants', {
+                    uft8: this.utf8,
+                    authenticity_token: this.authenticity_token,
+                    consultant: this.consultant
+                }).then(response => {
+                    this.loading = false
+                    console.log(response)
+                    var consultant_id = JSON.parse(response.bodyText).consultant.id
+                    Turbolinks.visit('/consultants/' + consultant_id)
+                }, response => {
+                    this.loading = false
+                    this.errors = JSON.parse(response.bodyText).errors
+                })
             },
             onDismiss(index) {
                 this.errors.splice(index, 1)
@@ -76,6 +99,8 @@
             }
         },
         created() {
+            this.utf8 = document.getElementsByName('utf8')[0].getAttribute('value')
+            this.authenticity_token = document.getElementsByName('authenticity_token')[0].getAttribute('value')
             console.log('consultant new created')
         }
     }
