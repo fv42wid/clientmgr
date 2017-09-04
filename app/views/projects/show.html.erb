@@ -147,6 +147,19 @@
           </v-list-tile-content>
         </v-list-tile>
         <v-list-tile>
+          <v-container fluid>
+            <v-layout row>
+              <v-flex xs12>
+                <v-list-tile-title>Consultants:
+                  <% @project.consultants.each do |consultant| %>
+                    <v-chip href="<%= consultants_path(consultant) %>"><%= consultant.name %></v-chip>
+                  <% end %>
+                </v-list-tile-title>
+              </v-flex>
+            </v-layout>
+          </v-container>
+        </v-list-tile>
+        <v-list-tile>
           <v-list-tile-content>
             <v-container fluid>
               <v-layout row>
