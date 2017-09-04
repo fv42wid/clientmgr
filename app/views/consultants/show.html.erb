@@ -1,1 +1,60 @@
-<h1><%= @consultant.name %></h1>
+<v-layout row>
+    <v-flex xs12>
+      <v-card>
+        <v-toolbar class="primary">
+          <v-toolbar-title class="white--text">
+            <%= @consultant.name %>
+          </v-toolbar-title>
+        </v-toolbar>
+        <v-list>
+          <v-list-tile>
+            <v-list-tile-content>
+              <v-container>
+                <v-list-tile-title><%= @consultant.title %></v-list-tile-title>
+              </v-container>
+            </v-list-tile-content>
+          </v-list-tile>
+          <v-list-tile>
+            <v-list-tile-content>
+              <v-container>
+                <v-list-tile-sub-title><%= @consultant.background %></v-list-tile-sub-title>
+              </v-container>
+            </v-list-tile-content>
+          </v-list-tile>
+
+        </v-list>
+      </v-card>
+    </v-flex>
+</v-layout>
+
+<v-layout row mt-2>
+  <v-flex xs12 sm6>
+    <v-card>
+      <v-toolbar class="primary">
+        <v-toolbar-title class="white--text">
+          Expertise
+        </v-toolbar-title>
+      </v-toolbar>
+      <v-list>
+        <% @consultant.expertises.each do |expertise| %>
+          <v-list-tile>
+            <v-list-tile-content>
+              <v-list-tile-title>
+                <%= expertise.name %>
+              </v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        <% end %>
+      </v-list>
+    </v-card>
+  </v-flex>
+    <v-flex xs12 sm6>
+      <v-card>
+        <v-toolbar class="primary">
+          <v-toolbar-title class="white--text">
+            Projects
+          </v-toolbar-title>
+        </v-toolbar>
+      </v-card>
+    </v-flex>
+</v-layout>

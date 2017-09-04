@@ -1,12 +1,12 @@
 class ConsultantsController < ApplicationController
-  before_action :set_consultant, only: [:show, :update]
+  before_action :set_consultant, only: [:update]
 
   def index
     @consultants = Consultant.all
   end
 
   def show
-
+    @consultant = Consultant.includes(:expertises).find(params[:id])
   end
 
   def new
