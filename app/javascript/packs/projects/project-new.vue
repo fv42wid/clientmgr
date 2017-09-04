@@ -155,6 +155,19 @@
         </v-layout>
         <v-layout row>
             <v-flex xs12 sm6>
+                <v-select label="Consultants Assigned"
+                          :items="consultants"
+                          item-text="name"
+                          item-value="id"
+                          v-model="project.consultant_ids"
+                          multiple
+                          chips
+                          hint="Who is Assigned?"
+                          persistent-hint></v-select>
+            </v-flex>
+        </v-layout>
+        <v-layout row>
+            <v-flex xs12 sm6>
                 <v-text-field name="links"
                               label="Links"
                               v-model="project.links"
@@ -205,17 +218,19 @@
                     contacts: '',
                     links: '',
                     metrics: '',
-                    customer_id: null
+                    customer_id: null,
+                    consultant_ids: []
                 },
                 errors: [],
                 loading: false,
                 engagementDateMenu: true,
                 customers: JSON.parse(this.customerlist),
+                consultants: JSON.parse(this.consultantlist),
                 utf8: '',
                 authenticity_token: ''
             }
         },
-        props: ['customerlist'],
+        props: ['customerlist', 'consultantlist'],
         methods: {
             createProject() {
                 this.loading = true

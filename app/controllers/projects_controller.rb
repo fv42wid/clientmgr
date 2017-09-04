@@ -8,10 +8,12 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.includes(:customer, :user).find(params[:id])
     @customers = Customer.all
+    @consultants = Consultant.all
   end
 
   def new
     @customers = Customer.all
+    @consultants = Consultant.all
   end
 
   def create
@@ -38,7 +40,8 @@ class ProjectsController < ApplicationController
     def project_params
       params.require(:project).permit(:title, :description, :industry, :engagement_date,
         :engagement_duration, :country, :business_problem, :drivers, :outcome, :solution,
-        :solution_explanation, :people_resource, :links, :metrics, :contacts, :customer_id)
+        :solution_explanation, :people_resource, :links, :metrics, :contacts, :customer_id,
+        consultant_ids: [])
     end
 
     def set_project

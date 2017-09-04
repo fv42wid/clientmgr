@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170903202157) do
+ActiveRecord::Schema.define(version: 20170904182728) do
 
   create_table "consultants", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -23,6 +23,11 @@ ActiveRecord::Schema.define(version: 20170903202157) do
 
   create_table "consultants_expertises", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "expertise_id", null: false
+    t.bigint "consultant_id", null: false
+  end
+
+  create_table "consultants_projects", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "project_id", null: false
     t.bigint "consultant_id", null: false
   end
 
