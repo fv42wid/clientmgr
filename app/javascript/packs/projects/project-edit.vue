@@ -114,6 +114,15 @@
                                               label="Who Can I Contact?"
                                               v-model="project.contacts"
                                               multi-line></v-text-field>
+                                <v-select label="Consultants Assigned"
+                                          :items="consultants"
+                                          item-text="name"
+                                          item-value="id"
+                                          v-model="project.consultant_ids"
+                                          multiple
+                                          chips
+                                          hint="Who is Assigned?"
+                                          persistent-hint></v-select>
                                 <v-text-field name="links"
                                               label="Links"
                                               v-model="project.links"
@@ -161,19 +170,21 @@
                     contacts: this.projectinput.contacts,
                     links: this.projectinput.links,
                     metrics: this.projectinput.metrics,
-                    customer_id: this.projectinput.customer_id
+                    customer_id: this.projectinput.customer_id,
+                    consultant_ids: []
                 },
                 project_id: this.projectinput.id,
                 editDialog: false,
                 customers: this.customerinput,
+                consultants: this.consultantinput,
                 loading: false,
                 engagementDateMenu: true,
                 utf8: '',
                 authenticity_token: '',
-                errros: []
+                errors: []
             }
         },
-        props: ['projectinput', 'customerinput'],
+        props: ['projectinput', 'customerinput', 'consultantinput', 'projectconsultants'],
         methods: {
             saveChanges() {
                 this.loading = true
@@ -196,6 +207,9 @@
         created() {
             this.utf8 = document.getElementsByName('utf8')[0].getAttribute('value')
             this.authenticity_token = document.getElementsByName('authenticity_token')[0].getAttribute('value')
+            for(var i=0; i < this.projectconsultants.length; i++) {
+                this.project.consultant_ids.push(this.projectconsultants[i].id)
+            }
             console.log('project edit created')
         }
     }

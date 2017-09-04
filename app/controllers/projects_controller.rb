@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.includes(:customer, :user).find(params[:id])
+    @project = Project.includes(:customer, :user, :consultants).find(params[:id])
     @customers = Customer.all
     @consultants = Consultant.all
   end
