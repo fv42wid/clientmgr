@@ -19,6 +19,7 @@ import ProjectNew from './projects/project-new.vue'
 import ProjectIndex from './projects/project-index.vue'
 import ProjectEdit from './projects/project-edit.vue'
 import ConsultantNew from './consultants/consultant-new.vue'
+import ConsultantIndex from './consultants/consultant-index.vue'
 
 Vue.use(VueResource)
 Vue.use(TurbolinksAdapter)
@@ -56,7 +57,8 @@ document.addEventListener('turbolinks:load', () => {
           'project-new' : ProjectNew,
           'project-index' : ProjectIndex,
           'project-edit' : ProjectEdit,
-          'consultant-new' : ConsultantNew
+          'consultant-new' : ConsultantNew,
+          'consultant-index' : ConsultantIndex
       }
   })
 })

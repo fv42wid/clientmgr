@@ -15,7 +15,7 @@
       </v-toolbar>
       <v-list two-line>
         <% @consultants.each do |consultant| %>
-          <%= consultant.name %>
+          <consultant-index :consultantinput="<%= consultant.to_json %>"></consultant-index>
         <% end %>
       </v-list>
     </v-card>
