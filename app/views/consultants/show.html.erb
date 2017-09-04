@@ -55,6 +55,17 @@
             Projects
           </v-toolbar-title>
         </v-toolbar>
+        <v-list>
+          <% @consultant.projects.each do |project| %>
+            <v-list-tile href="<%= project_path(project) %>">
+              <v-list-tile-content>
+                <v-list-tile-title>
+                  <%= project.title %>
+                </v-list-tile-title>
+              </v-list-tile-content>
+            </v-list-tile>
+          <% end %>
+        </v-list>
       </v-card>
     </v-flex>
 </v-layout>
