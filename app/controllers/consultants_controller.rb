@@ -7,6 +7,7 @@ class ConsultantsController < ApplicationController
 
   def show
     @consultant = Consultant.includes(:expertises).find(params[:id])
+    @expertises = Expertise.all
   end
 
   def new
@@ -24,7 +25,12 @@ class ConsultantsController < ApplicationController
   end
 
   def update
-
+    if @consultant.update_attributes(consultant_params)
+      flash[:notice] = "#{@consultant.name} updated!"
+      render json: {consultant: @consultant}
+    else
+      render json: {errors: @consultant.errors.full_messages}, status: 422
+    end
   end
 
   private

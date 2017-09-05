@@ -5,6 +5,12 @@
           <v-toolbar-title class="white--text">
             <%= @consultant.name %>
           </v-toolbar-title>
+          <v-spacer></v-spacer>
+          <template v-if="true">
+            <consultant-edit :consultantinput="<%= @consultant.to_json %>"
+                             :expertiselist="<%= @expertises.to_json(only: [:id, :name]) %>"
+                             :consultantexpertises="<%= @consultant.expertises.to_json(only: [:id, :name]) %>"></consultant-edit>
+          </template>
         </v-toolbar>
         <v-list>
           <v-list-tile>
@@ -69,3 +75,5 @@
       </v-card>
     </v-flex>
 </v-layout>
+<%= form_for(Consultant.new) do |f| %>
+<% end %>
