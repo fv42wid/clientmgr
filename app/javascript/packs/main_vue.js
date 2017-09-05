@@ -21,6 +21,8 @@ import ProjectEdit from './projects/project-edit.vue'
 import ConsultantNew from './consultants/consultant-new.vue'
 import ConsultantIndex from './consultants/consultant-index.vue'
 import ConsultantEdit from './consultants/consultant-edit.vue'
+import AwsAccountProject from './awsaccount/awsaccounts-project.vue'
+import AwsAccountNew from './awsaccount/awsaccount-new.vue'
 
 Vue.use(VueResource)
 Vue.use(TurbolinksAdapter)
@@ -60,7 +62,9 @@ document.addEventListener('turbolinks:load', () => {
           'project-edit' : ProjectEdit,
           'consultant-new' : ConsultantNew,
           'consultant-index' : ConsultantIndex,
-          'consultant-edit' : ConsultantEdit
+          'consultant-edit' : ConsultantEdit,
+          'awsaccount-project' : AwsAccountProject,
+          'awsaccount-new' : AwsAccountNew
       }
   })
 })

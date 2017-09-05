@@ -203,3 +203,6 @@
 </v-layout>
 <%= form_for(Project.new) do |f| %>
 <% end %>
+
+<awsaccount-project :awsaccountlist="<%= @project.awsaccounts.to_json %>"
+                    :projectid="<%= @project.id %>"></awsaccount-project>
