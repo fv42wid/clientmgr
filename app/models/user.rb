@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :customers
   has_many :projects
   has_many :consultants
+  has_many :awsaccounts
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170905010722) do
+ActiveRecord::Schema.define(version: 20170906085640) do
 
   create_table "awsaccounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "project_id"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20170905010722) do
     t.float "estimated_spend", limit: 24
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "consultants", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

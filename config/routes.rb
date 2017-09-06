@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :customers
   resources :projects
   resources :consultants
+  resources :awsaccounts
 
   root 'customers#index'
 end

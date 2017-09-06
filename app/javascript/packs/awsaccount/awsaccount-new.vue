@@ -60,13 +60,25 @@
                     project_id: this.projectid
                 },
                 awsDialog: false,
-                loading: false
+                loading: false,
+                errors: []
             }
         },
         props: ['projectid'],
         methods: {
             saveAccount() {
                 this.loading = true
+                this.$http.post('/awsaccounts', {
+                    awsaccount: this.account
+                }).then(response => {
+                    this.loading = false
+                    console.log(response)
+                    var project_id = JSON.parse(response.bodyText).project_id
+                    Turbolinks.visit('/projects/' + project_id)
+                }, response => {
+                    this.loading = false
+                    this.errors = JSON.parse(response.bodyText).errors
+                })
             }
         },
         created() {
