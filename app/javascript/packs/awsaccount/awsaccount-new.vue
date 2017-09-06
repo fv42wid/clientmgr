@@ -73,7 +73,7 @@
                 }).then(response => {
                     this.loading = false
                     console.log(response)
-                    var project_id = JSON.parse(response.bodyText).project_id
+                    var project_id = JSON.parse(response.bodyText).awsaccount.project_id
                     Turbolinks.visit('/projects/' + project_id)
                 }, response => {
                     this.loading = false
