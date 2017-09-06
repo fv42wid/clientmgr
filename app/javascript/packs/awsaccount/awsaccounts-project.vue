@@ -7,6 +7,18 @@
                     <v-spacer></v-spacer>
                     <awsaccount-new :projectid="project_id"></awsaccount-new>
                 </v-toolbar>
+                <v-list>
+                    <v-list-tile v-for="awsaccount in aws_accounts" :key="awsaccount.account_id">
+                        <v-list-tile-content>
+                            <v-list-tile-title>
+                                ID: {{ awsaccount.account_id }}
+                            </v-list-tile-title>
+                            <v-list-tile-sub-title>
+                                Estimated Spend: {{ awsaccount.estimated_spend }}
+                            </v-list-tile-sub-title>
+                        </v-list-tile-content>
+                    </v-list-tile>
+                </v-list>
             </v-card>
         </v-flex>
     </v-layout>
