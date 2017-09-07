@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:edit, :update]
+  before_action :authenticate_user!, only: [:show, :new, :create, :update]
 
   def index
     @projects = Project.includes(:customer)
