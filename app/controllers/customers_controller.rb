@@ -1,5 +1,6 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update]
+  before_action :authenticate_user!, only: [:show, :new, :create, :update]
 
   def index
     @customers = Customer.includes(:projects)
@@ -26,10 +27,6 @@ class CustomersController < ApplicationController
     else
       render json: {errors: @customer.errors.full_messages}, status: 422
     end
-  end
-
-  def edit
-
   end
 
   def update
