@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :customers, only: [:index, :show, :new, :create, :update]
   resources :projects, only: [:index, :show, :new, :create, :update]
-  resources :consultants
+  resources :consultants, only: [:index, :show, :new, :create, :update]
   resources :awsaccounts
 
   root 'customers#index'
